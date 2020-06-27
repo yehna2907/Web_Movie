@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="ticket">
+	<insert id="insertTicket">
+		insert into ticket(tid, tmoviename, tdate, tplace, ttime, tseatno, smovie)
+		values(#{tid},#{tmoviename},#{tdate},#{tplace},#{ttime},#{tseatno},#{smovie})
+	</insert>
+
+	<select id="selectTicketList" resultType="ticket">
+		select tno, tmoviename, tdate, tplace, ttime, tseatno, smovie
+		from ticket
+		where tid=#{tid}
+	</select>
+
+	<delete id="deleteTicketByTno">
+		delete from ticket where tno=#{tno};
+	</delete>
+	
+	<delete id="deleteTicketByTid">
+		delete from ticket where tid=#{tid};
+	</delete>
+	
+	<update id="updateDB">
+		update ticket set tdate=date_add(curdate(),INTERVAL #{newdate} DAY) 
+		where tdate=date_add(curdate(),INTERVAL #{olddate} DAY);
+	</update>
+</mapper>

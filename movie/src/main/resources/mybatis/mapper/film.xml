@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="film">
+	<select id="selectAll" resultType="film">
+		select * from film
+	</select>
+	
+	<select id="getFtitle" resultType="string">
+		select ftitle from film
+		where fno=#{mvfno}
+	</select>
+	
+	<select id="selectByFno" resultType="film">
+		select * from film where fno=#{fno}
+	</select>
+	
+	<update id="updateFscore">
+		update film set fscore=#{fscore} where fno=#{fno}
+	</update>
+</mapper>

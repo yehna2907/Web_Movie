@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Appenders> <!-- 어디다가 로그를 기록할 것인가 -->
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%5p [%c.%M()] %m%n" /> 
+<!--             p는 로그레벨, c는 로그를 출력하는 클래스 이름이 뭐냐, M은 어떤 메소드, m은 로그메세지, n은 계행 -->
+        </Console>
+    </Appenders>
+    <Loggers>
+    	<Logger name="com.mycompany.project" level="DEBUG" additivity="false">
+            <AppenderRef ref="console" />
+        </Logger>
+        <Logger name="java.sql" level="INFO" additivity="false">
+        	<AppenderRef ref="console" />
+        </Logger>
+        <Logger name="jdbc.sqltiming" level="INFO" additivity="false">
+        	<AppenderRef ref="console" />
+        </Logger>
+    </Loggers>
+</Configuration>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="seat">
+	<select id="selectByMvno" resultType="seat">
+		select * from seat where smovie=#{mvno}
+	</select>
+	
+	<update id="updateBySno">
+		update seat set sselect=true
+		where smovie=#{smovie} and sno=#{sno};
+	</update>
+	
+	<insert id="insertSeat">
+		insert into seat(smovie, sno, sselect)
+		values(#{smovie}, #{sno}, false);
+	</insert>
+	
+	<update id="cancleSeat">
+		update seat set sselect=false
+		where smovie=#{smovie} and sno=#{sno};
+	</update>
+</mapper>

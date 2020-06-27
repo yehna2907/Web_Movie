@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="review">
+	<insert id="insert" parameterType="review">
+		insert into review (rfno, rid, rcontent, rscore, rdate)
+		values(#{rfno}, #{rid}, #{rcontent}, #{rscore}, now())
+	</insert>
+	
+	<select id="selectByRfno" resultType="review">
+		select * from review
+		where rfno=#{rfno}
+		order by rno desc limit #{startIndex}, #{rowsPerPage}
+	</select>
+	
+	<select id="selectByRidRfno" resultType="review">
+		select * from review
+		where rfno=#{rfno} and rid=#{rid}
+	</select>
+	
+	<select id="selectAllReview" resultType="review">
+		select rno, rfno, rid, rcontent, rscore, rdate
+		from review
+		order by rno desc limit #{startIndex}, #{rowsPerPage}
+	</select>
+	
+	<select id="countReview" resultType="int">
+		select count(*) from review where rfno=#{rfno}
+	</select>
+	
+	<select id="countAll" resultType="int">
+		select count(*) from review
+	</select>
+	
+	<select id="selectAvgRscore" resultType="string">
+		select avg(rscore) from review where rfno=#{rfno}
+	</select>
+	
+	<update id="updateByRno" parameterType="review">
+		update review set rcontent = #{rcontent}, rscore = #{rscore}
+		where rno = #{rno}
+	</update>
+	
+	<delete id="deleteByRno">
+		delete from review where rno = #{rno}
+	</delete>
+	
+	<select id="selectListReviewByRfno" resultType="review">
+		select * from review
+		where rfno=#{rfno}
+		order by rno desc
+	</select>
+</mapper>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration 
+	PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+	
+<configuration>
+	<typeAliases>
+		<typeAlias alias="member" type="com.mycompany.project.model.Member" />
+		<typeAlias alias="film" type="com.mycompany.project.model.Film"/>
+		<typeAlias alias="movie" type="com.mycompany.project.model.Movie"/>
+		<typeAlias alias="seat" type="com.mycompany.project.model.Seat"/>
+		<typeAlias alias="review" type="com.mycompany.project.model.Review"/>
+		<typeAlias alias="pager" type="com.mycompany.project.model.Pager"/>
+		<typeAlias alias="counter" type="com.mycompany.project.model.Counter"/>
+		<typeAlias alias="ticket" type="com.mycompany.project.model.Ticket"/>
+	</typeAliases>
+</configuration>

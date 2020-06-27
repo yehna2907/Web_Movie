@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+	
+<mapper namespace="member">
+	<insert id="insert" parameterType="member">
+		INSERT INTO 
+		member(mid, mpassword, mname, mtel,	memail, mbirth)
+		VALUES(#{mid}, #{mpassword}, #{mname}, #{mtel}, #{memail}, #{mbirth})
+	</insert>
+	
+	<select id="selectByMid" resultType="member">
+		SELECT *
+		FROM member
+		WHERE mid=#{mid}
+	</select>
+	
+	<select id="selectMid" parameterType="member" resultType="string">
+		select mid from member 
+		where mname=#{mname} and mbirth=#{mbirth} and mtel=#{mtel}
+	</select>
+		
+	<select id="selectMpassword" parameterType="member" resultType="string">
+	      select mpassword from member 
+	      where mid=#{mid} and mbirth=#{mbirth} and mtel=#{mtel}
+	</select>
+   
+	<delete id="delete" parameterType="member">
+		delete from member
+		where mid = #{mid}
+   	</delete>
+   	
+   	<update id="update" parameterType="member">
+		UPDATE member
+		SET mpassword=#{mpassword}, mname=#{mname}, mtel=#{mtel}, memail=#{memail}, mbirth=#{mbirth}, mpoint=#{mpoint}
+		WHERE mid=#{mid}
+	</update>
+   	
+   	<update id="updateMpoint">
+   		update member set mpoint=#{mpoint}
+   		where mid=#{mid}
+   	</update>
+</mapper>

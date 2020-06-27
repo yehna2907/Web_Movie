@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="movie">
+	<select id="selectStartTimeByMvfnoMvdate" parameterType="movie" resultType="movie">
+		select mvno, mvplace, mvstarttime, mvdate from movie
+		where mvfno=#{mvfno} and mvdate=#{mvdate}
+		order by mvstarttime;
+	</select>
+	
+	<select id="selectBySmovie" resultType="movie">
+		select mvfno, mvplace, mvstarttime, mvdate from movie
+		where mvno=#{smovie}
+	</select>
+	
+	<insert id="insertDB">
+		insert into movie(mvfno,mvplace,mvstarttime,mvdate)
+		values(#{mvfno}, #{mvplace}, #{mvstarttime},date_add(curdate(),INTERVAL #{mvdate} DAY));
+	</insert>
+	
+	<update id="updateDB">
+		update movie set mvdate=date_add(curdate(),INTERVAL #{newdate} DAY) 
+		where mvdate=date_add(curdate(),INTERVAL #{olddate} DAY);
+	</update>
+	
+	<select id="selectDate" resultType="string">
+		select mvdate from movie
+		where mvno=1
+	</select>
+	
+</mapper>

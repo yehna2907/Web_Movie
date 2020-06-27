@@ -1,0 +1,41 @@
+#star_grade a{
+    text-decoration: none;
+    color: gray;
+}
+#star_grade a.on{
+    color: red;
+}
+
+table.film_table {
+	float: right;
+	margin-right: 18%;
+	display: inline;
+    text-align: left;
+    line-height: 1.5;
+
+}
+table.film_table thead th {
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    color: #369;
+    border-bottom: 3px solid #036;
+}
+table.film_table tbody th {
+    width: 150px;
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+    background: #f3f6f7;
+}
+table.film_table td {
+    width: 350px;
+    padding: 10px;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+}
+ 
+table.table {
+	margin-right: 20%;
+}
